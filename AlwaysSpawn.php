@@ -22,6 +22,8 @@ apiversion=6,7,8,9,10,11
     public function init()
     {
         $this->api->addHandler("player.spawn", array($this, "eventHandler"), 100);
+	console("[INFO] AlwaysSpawn loaded!");
+	console("[INFO] Your players will now be teleported to the spawn point when they connect!");
     }
     
     public function eventHandler($data, $event)
