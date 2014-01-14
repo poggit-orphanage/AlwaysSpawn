@@ -10,10 +10,6 @@ class=Spawner
 apiversion=6,7,8,9,10,11
 */
 
-//===========================================
-//This has been confirmed as functional!
-//===========================================
-
 
     class Spawner implements plugin{
 
