@@ -11,10 +11,6 @@ class=AlwaysSpawn
 apiversion=6,7,8,9,10,11
 */
 
-//===========================================
-//This has not been confirmed as functional!
-//===========================================
-
 
     class AlwaysSpawn implements plugin{
 
@@ -33,9 +29,6 @@ apiversion=6,7,8,9,10,11
         $this->api->addHandler("player.connect", array($this, "eventHandler"), 100);
         console("[INFO] AlwaysSpawn loaded!");
         console("[INFO] Your players will connect to the server at the Spawn Point!");
-        console("[WARNING] This version of AlwaysSpawn has not been confirmed to be functional!");
-        console("[WARNING] It is recommended to get a confirmed version to avoid server damage!");
-        console("[WARNING] The current confirmed version is 1.0.3");
     }
     
     public function eventHandler($data, $event)
@@ -45,19 +38,13 @@ apiversion=6,7,8,9,10,11
             case 'player.connect':
 
 
-                $this->api->schedule(31, array($this, "spawn"), $data);
+                $player->setSpawn($this->api->level->getSpawn());
 
 
             break;
         }
 
 
-    }
-
-
-    public function spawn($player)
-    {
-         $player->setSpawn($this->api->level->getSpawn());
     }
 
 
