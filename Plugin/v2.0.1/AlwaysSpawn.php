@@ -1,2 +1,2 @@
-//I have been forced to remove this code due to a server crash bug!
-//It will be reposted when I have fixed this issue!
+//I think I have patched the server crash bug for this version of AlwaysSpawn
+//However I have yet to test it... Please check back later!
