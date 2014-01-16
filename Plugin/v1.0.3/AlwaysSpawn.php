@@ -33,7 +33,7 @@ apiversion=6,7,8,9,10,11
         {
             case 'player.spawn':
 
-                // PocketMine core schedules lots of teleports - ugh, we need to wait awhile
+                // PocketMine core schedules lots of teleports - ugh, we need to wait awhile...
                 $this->api->schedule(31, array($this, "teleport"), $data);
 
             break;
