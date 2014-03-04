@@ -47,21 +47,16 @@ class AlwaysSpawn implements Plugin{
                 break;
             }
         }elseif($enableConf=false){
-            console("[INFO] [AlwaysSpawn] 'enableConf' is set to true in the config.yml file!");
+            console("[INFO] [AlwaysSpawn] 'enableConf' is set to false in the config.yml file!");
             switch($event){
                 case 'player.spawn':
-                    $this->api->shedule(31, array($this, "teleport"), $data);
+                    $player->teleport($this->api->level->getSpawn());
                 break;
             }
         }else{
             console("[ERROR] [AlwaysSpawn] The AlwaysSpawn config.yml file is corrupt!  Stopping server to prevent damage...");
             $this->api->console->run("stop");
         }
-    }
-   
-    public function teleport($player)
-    {
-        $player->teleport($this->api->level->getSpawn());
     }
 
     public function location($data, $issuer, $event)
