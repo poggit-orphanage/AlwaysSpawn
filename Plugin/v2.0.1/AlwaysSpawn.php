@@ -64,11 +64,10 @@ class AlwaysSpawn implements Plugin{
          switch($event){
               case "aslocation":
                    if(!($issuer instanceof Player)){
-                        $output = "[AlwaysSpawn] Please run this command in-game!";
+                        console("[AlwaysSpawn] Please run this command in-game!");
                    }else{
-                        $output = "====================\nLocation:\nX: ".ceil($player->entity->x)."\nY: ".ceil($player->entity->y)."\nZ: ".ceil($player->entity->z)."\nWorld: ".$player->entity->level->getName()."\n====================";
+                        $issuer->sendChat("====================\nLocation:\nX: ".ceil($player->entity->x)."\nY: ".ceil($player->entity->y)."\nZ: ".ceil($player->entity->z)."\nWorld: ".$player->entity->level->getName()."\n====================");
               }
-                   return $output;
               break;
          }
     }
