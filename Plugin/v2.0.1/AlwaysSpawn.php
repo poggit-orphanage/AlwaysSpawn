@@ -26,8 +26,9 @@ class AlwaysSpawn implements Plugin{
             'Z' => 0,
         ));
         $this->api->console->register("aslocation", "Get your in game location!", array($this, "location"));
+        $this->api->console->register("asset", "Set up the AlwaysSpawn config while in-game!", array($this, "setConf"));
         $this->api->addHandler("player.spawn", array($this, "eventHandler"), 100);
-        console("[INFO] AlwaysSpawn Loaded!");
+        console("[INFO] AlwaysSpawn 2.0.1 Dev Build #6 Loaded!");
     }
 
     public function eventHandler($data, $event)
@@ -54,8 +55,7 @@ class AlwaysSpawn implements Plugin{
                 break;
             }
         }else{
-            console("[ERROR] [AlwaysSpawn] The AlwaysSpawn config.yml file is corrupt!  Stopping server to prevent damage...");
-            $this->api->console->run("stop");
+            console("[ERROR] [AlwaysSpawn] Nothing is set for 'enableConf' in the config.yml file! AlwaysSpawn has set it to false by default in order to run the plugin correctly!");
         }
     }
 
@@ -64,9 +64,22 @@ class AlwaysSpawn implements Plugin{
          switch($event){
               case "aslocation":
                    if(!($issuer instanceof Player)){
-                        console("[AlwaysSpawn] Please run this command in-game!");
+                        console("[ERROR] [AlwaysSpawn] Please run this command in-game!");
                    }else{
                         $issuer->sendChat("====================\nLocation:\nX: ".ceil($player->entity->x)."\nY: ".ceil($player->entity->y)."\nZ: ".ceil($player->entity->z)."\nWorld: ".$player->entity->level->getName()."\n====================");
+              }
+              break;
+         }
+    }
+
+    public function setConf($data, $issuer, $event)
+    {
+         switch($event){
+              case "asset":
+                   if(!($issuer instanceof Player)){
+                        console("[ERROR] [AlwaysSpawn] Please run this command in-game!");
+                   }else{
+                        $issuer->sendChat("[AlwaysSpawn] This command currently has no use.\nPlease give me some time to work on this part.");
               }
               break;
          }
