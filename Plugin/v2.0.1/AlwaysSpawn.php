@@ -28,7 +28,7 @@ class AlwaysSpawn implements Plugin{
         $this->api->console->register("aslocation", "Get your in game location!", array($this, "location"));
         $this->api->console->register("asset", "Set up the AlwaysSpawn config while in-game!", array($this, "setConf"));
         $this->api->addHandler("player.spawn", array($this, "eventHandler"), 100);
-        console("[INFO] AlwaysSpawn 2.0.1 Dev Build #6 Loaded!");
+        console("[INFO] AlwaysSpawn 2.0.1 Dev Build #7 Loaded!");
     }
 
     public function eventHandler($data, $event)
@@ -66,7 +66,7 @@ class AlwaysSpawn implements Plugin{
                    if(!($issuer instanceof Player)){
                         console("[ERROR] [AlwaysSpawn] Please run this command in-game!");
                    }else{
-                        $issuer->sendChat("====================\nLocation:\nX: ".ceil($player->entity->x)."\nY: ".ceil($player->entity->y)."\nZ: ".ceil($player->entity->z)."\nWorld: ".$player->entity->level->getName()."\n====================");
+                        $issuer->sendChat("====================\nLocation:\nX: ".ceil($issuer->entity->x)."\nY: ".ceil($issuer->entity->y)."\nZ: ".ceil($issuer->entity->z)."\nWorld: ".$player->entity->level->getName()."\n====================");
               }
               break;
          }
@@ -79,9 +79,34 @@ class AlwaysSpawn implements Plugin{
                    if(!($issuer instanceof Player)){
                         console("[ERROR] [AlwaysSpawn] Please run this command in-game!");
                    }else{
-                        $issuer->sendChat("[AlwaysSpawn] This command currently has no use.\nPlease give me some time to work on this part.");
-              }
+                        $XPos=$this->config->get('X');
+                        $YPos=$this->config->get('Y');
+                        $ZPos=$this->config->get('Z');
+                        $Level=$this->config->get('spawnWorld');
+
+                        $PlayerX=ceil($issuer->entity->x);
+                        $PlayerY=ceil($issuer->entity->y);
+                        $PlayerZ=ceil($issuer->entity->z);
+                        $PlayerLevel=$issuer->entity->level->getName();
+
+                             if($XPos=$PlayerX and $YPos=$PlayerY and $ZPos=$PlayerZ){
+                                  $issuer->sendChat("[AlwaysSpawn] You can not set the spawn point here!");
+                             }else{
+                                  console("[INFO] [AlwaysSpawn] Saving ".$issuer."'s location to config.yml! (".$PlayerX.", ".$PlayerY.", ".$PlayerZ.")");
+                                  $this->X=['X'][$PlayerX];
+                                  $this->Y=['Y'][$PlayerY];
+                                  $this->Z=['Z'][$PlayerZ];
+                                  $this->api->plugin->writeYAML($this->api->plugin->configPath($this) . "config.yml", $this->X);
+                                  $this->config->save();
+                                  $this->api->plugin->writeYAML($this->api->plugin->configPath($this) . "config.yml", $this->Y);
+                                  $this->config->save();
+                                  $this->api->plugin->writeYAML($this->api->plugin->configPath($this) . "config.yml", $this->Z);
+                                  $this->config->save();
+                                  console("[WARNING] [AlwaysSpawn] User ".$issuer." has changed the AlwaysSpawn config.yml!");
+                                  $issuer->sendChat("[AlwaysSpawn] Completed Successfully!");
+                   }
               break;
+              }
          }
     }
    
