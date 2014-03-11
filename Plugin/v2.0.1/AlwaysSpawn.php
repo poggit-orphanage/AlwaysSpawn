@@ -3,7 +3,7 @@
 __PocketMine Plugin__
 name=AlwaysSpawn
 description=Force your users to automaticaly spawn every time they login!
-version=2.0.1dev
+version=2.0.1
 author=Comedyman937
 class=AlwaysSpawn
 apiversion=6,7,8,9,10,11,12
@@ -28,7 +28,7 @@ class AlwaysSpawn implements Plugin{
         $this->api->console->register("aslocation", "Get your in game location!", array($this, "location"));
         $this->api->console->register("asset", "Set up the AlwaysSpawn config while in-game!", array($this, "setConf"));
         $this->api->addHandler("player.spawn", array($this, "eventHandler"), 100);
-        console("[INFO] AlwaysSpawn 2.0.1 Dev Build #7 Loaded!");
+        console("[INFO] AlwaysSpawn Loaded!");
     }
 
     public function eventHandler($data, $event)
@@ -92,15 +92,14 @@ class AlwaysSpawn implements Plugin{
                              if($XPos=$PlayerX and $YPos=$PlayerY and $ZPos=$PlayerZ){
                                   $issuer->sendChat("[AlwaysSpawn] You can not set the spawn point here!");
                              }else{
-                                  console("[INFO] [AlwaysSpawn] Saving ".$issuer."'s location to config.yml! (".$PlayerX.", ".$PlayerY.", ".$PlayerZ.")");
-                                  $this->X=['X'][$PlayerX];
-                                  $this->Y=['Y'][$PlayerY];
-                                  $this->Z=['Z'][$PlayerZ];
-                                  $this->api->plugin->writeYAML($this->api->plugin->configPath($this) . "config.yml", $this->X);
-                                  $this->config->save();
-                                  $this->api->plugin->writeYAML($this->api->plugin->configPath($this) . "config.yml", $this->Y);
-                                  $this->config->save();
-                                  $this->api->plugin->writeYAML($this->api->plugin->configPath($this) . "config.yml", $this->Z);
+                                  console("[INFO] [AlwaysSpawn] Saving ".$issuer."'s location to config.yml... (".$PlayerX.", ".$PlayerY.", ".$PlayerZ." In ".$PlayerLevel.")");
+                                  $this->config = new Config($this->api->plugin->configPath($this)."config.yml.", CONFIG_YAML, array(
+'enableConf' => true,
+'spawnWorld' => $PlayerLevel,
+'X' => $PlayerX,
+'Y' => $PlayerY,
+'Z' => $PlayerZ,
+));
                                   $this->config->save();
                                   console("[WARNING] [AlwaysSpawn] User ".$issuer." has changed the AlwaysSpawn config.yml!");
                                   $issuer->sendChat("[AlwaysSpawn] Completed Successfully!");
