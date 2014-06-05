@@ -1,0 +1,19 @@
+name: AlwaysSpawn
+main: AlwaysSpawn\Main
+version: 2.1.0
+api: 1.0.0
+
+load: POSTWORLD
+author Comedyman937
+description: force players to spawn every time they join your server!
+website: http://github.com/Comedyman937/AlwaysSpawn
+
+commands:
+  alwaysspawn:
+    description: Admin commands for AlwaysSpawn!
+    usage: /AlwaysSpawn <SET|CONFIG> [ENABLE|DISABLE]
+    permission: alwaysspawn.command.alwaysspawn
+permissions:
+  alwaysspawn.command.alwaysspawn
+    description: Allows players to use the AlwaysSpawn Admin command!
+    default: false
