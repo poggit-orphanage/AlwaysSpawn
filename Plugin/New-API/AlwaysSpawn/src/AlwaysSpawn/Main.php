@@ -26,7 +26,7 @@ class Main extends PluginBase implements Listener, CommandExecutor{
         $this->getLogger()->log("[INFO] AlwaysSpawn Loaded!");
     }
     
-    /*
+    /**
      * @param PlayerJoinEvent $event
      *
      * @priority       NORMAL
