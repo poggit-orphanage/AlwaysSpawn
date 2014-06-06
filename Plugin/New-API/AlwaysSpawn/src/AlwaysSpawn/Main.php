@@ -12,6 +12,7 @@ use pocketmine\command\CommandExecutor;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\level\Level;
+use pocketmine\entity\Entity;
 use pocketmine\Player;
 
 class Main extends PluginBase implements Listener, CommandExecutor{
