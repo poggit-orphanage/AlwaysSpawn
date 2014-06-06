@@ -7,6 +7,7 @@ use pocketmine\command\PluginCommand;
 use pocketmine\command\CommandSender;
 use pocketmine\command\ConsoleCommandSender;
 use pocketmine\command\RemoteConsoleCommandSender;
+use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\Player;
 
 class Main extends PluginBase{
@@ -17,12 +18,12 @@ class Main extends PluginBase{
         $cmd->setDescription("Admin commands for AlwaysSpawn!");
         $cmd->setAliases(array("as"));
         
-        $this->getServer()->getPluginManager()->registerEvents($this, $this);
+        $this->getServer()->getPluginManager()->registerEvents("PlayerJoinEvent", onJoin);
         
         $this->getLogger()->log("[INFO] AlwaysSpawn Loaded!");
     }
     
-    public function onConnect(){
+    public function onJoin(pocketmine\event\player\PlayerJoinEvent $playerjoin){
         
     }
     
