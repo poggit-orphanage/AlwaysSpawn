@@ -4,6 +4,6 @@ version: 2.1.0
 api: [1.0.0]
 
 load: POSTWORLD
-authors: [Comedyman937]
+authors: Comedyman937
 description: force players to spawn every time they join your server!
 website: http://github.com/Comedyman937/AlwaysSpawn
