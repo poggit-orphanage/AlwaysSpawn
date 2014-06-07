@@ -23,6 +23,7 @@ class Main extends PluginBase implements Listener{
      * @ignoreCanceled false
      */
     public function onSpawn(PlayerJoinEvent $event){
+        $player = $event->getPlayer();
         $player->teleport($this->level->getSpawn());
     }
     
