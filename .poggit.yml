@@ -2,6 +2,7 @@
 branches:
 - master
 projects:
-  Plugin.New-API.AlwaysSpawn:
+  Plugin.AlwaysSpawn:
     path: Plugin/New-API/AlwaysSpawn/
+    icon: as.png
 ...
