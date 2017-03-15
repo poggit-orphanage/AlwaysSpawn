@@ -1,4 +1,4 @@
-<php
+<?php
 
 namespace AlwaysSpawn;
 
@@ -8,12 +8,13 @@ use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\level\Level;
 use pocketmine\entity\Entity;
 use pocketmine\Player;
+use pocketmine\Server;
 
 class Main extends PluginBase implements Listener{
 
     public function onEnable(){
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
-        $this->getLogger()->log("[INFO] AlwaysSpawn Loaded!");
+        $this->getLogger()->info("[INFO] AlwaysSpawn Loaded!");
     }
     
     /**
@@ -23,7 +24,7 @@ class Main extends PluginBase implements Listener{
      * @ignoreCanceled false
      */
     public function onSpawn(PlayerJoinEvent $event){
-        $player->teleport($this->level->getSpawn());
+        $player->teleport($player->getLevel()->getSafeSpawn());
     }
     
     public function onDisable(){
