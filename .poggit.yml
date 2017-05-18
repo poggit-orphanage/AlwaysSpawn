@@ -5,5 +5,5 @@ projects:
   AlwaysSpawn:
     path: Plugin/New-API/AlwaysSpawn/
     icon: as.png
-    projectId; 316
+    projectId: 316
 ...
