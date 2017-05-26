@@ -13,7 +13,7 @@ class Main extends PluginBase implements Listener{
 
     public function onEnable(){
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
-        $this->getLogger()->info("[INFO] AlwaysSpawn Loaded!");
+        $this->getLogger()->info("AlwaysSpawn Loaded!");
     }
     
     /**
@@ -28,6 +28,6 @@ class Main extends PluginBase implements Listener{
     }
     
     public function onDisable(){
-        $this->getLogger()->info("[INFO] AlwaysSpawn Unloaded!");
+        $this->getLogger()->info("AlwaysSpawn Unloaded!");
     }
 }
