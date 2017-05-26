@@ -1,4 +1,4 @@
-<php
+<?php
 
 namespace AlwaysSpawn;
 
@@ -13,7 +13,7 @@ class Main extends PluginBase implements Listener{
 
     public function onEnable(){
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
-        $this->getLogger()->log("[INFO] AlwaysSpawn Loaded!");
+        $this->getLogger()->info("[INFO] AlwaysSpawn Loaded!");
     }
     
     /**
@@ -22,11 +22,12 @@ class Main extends PluginBase implements Listener{
      * @priority       NORMAL
      * @ignoreCanceled false
      */
+    
     public function onSpawn(PlayerJoinEvent $event){
-        $player->teleport($this->level->getSpawn());
+        $event->getPlayer()->teleport($event->getPlayer()->getLevel()->getSafeSpawn());
     }
     
     public function onDisable(){
-        $this->getLogger()->log("[INFO] AlwaysSpawn Unloaded!");
+        $this->getLogger()->info("[INFO] AlwaysSpawn Unloaded!");
     }
 }
