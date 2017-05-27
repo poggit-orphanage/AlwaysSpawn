@@ -1,0 +1,7 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/poggit-orphanage/AlwaysSpawn
+branches:
+- patch-2
+projects:
+  AlwaysSpawn:
+    path: Plugin/New-API/AlwaysSpawn/
+...
