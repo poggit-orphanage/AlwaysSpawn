@@ -1,10 +1,10 @@
 <?php
 	namespace philipshilling\alwaysspawn;
 	
-	use pocketmine\plugin\PluginBase as Plugin;
+	use pocketmine\level\Position;
+    use pocketmine\plugin\PluginBase as Plugin;
 	use pocketmine\event\Listener;
 	use pocketmine\event\player\PlayerLoginEvent;
-	use pocketmine\math\Vector3;
 				
 	class Loader extends Plugin implements Listener {
 		public function onEnable() {
@@ -19,7 +19,7 @@
 			$z = $this->getServer()->getDefaultLevel()->getSafeSpawn()->getZ();
 			$level = $this->getServer()->getDefaultLevel();
 			$player->setLevel($level);
-			$player->teleport(new Vector3($x, $y, $z, $level));
+			$player->teleport(new Position($x, $y, $z, $level));
 		}
 
 	}
