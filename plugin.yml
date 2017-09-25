@@ -1,6 +1,6 @@
 name: AlwaysSpawn
 authors: [Philip Shilling]
-version: 2.2.3-1.alpha8
+version: 2.2.3-2.alpha8
 api: [3.0.0-ALPHA7, 3.0.0-ALPHA8]
 main: philipshilling\alwaysspawn\Loader
 load: STARTUP
