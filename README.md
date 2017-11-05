@@ -1,5 +1,7 @@
 # General
 
+[![Poggit Release](https://poggit.pmmp.io/shield.approved/AlwaysSpawn)](https://poggit.pmmp.io/p/AlwaysSpawn)
+
 **AlwaysSpawn** allows you to force your players to always join the server at the spawn point.
 
 This works great for servers that have a hub as your players will always join the game at the **default worlds spawn point**.
