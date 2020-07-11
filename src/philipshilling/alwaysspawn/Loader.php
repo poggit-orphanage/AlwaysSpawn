@@ -6,8 +6,8 @@ use pocketmine\event\player\PlayerLoginEvent;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\plugin\PluginBase as Plugin;
 use pocketmine\Server;
-use ResourceManager;
-use ResourceUpdater;
+use philipshilling\ResourceManager;
+use philipshilling\ResourceUpdater;
 
 class Loader extends Plugin implements Listener
 {
