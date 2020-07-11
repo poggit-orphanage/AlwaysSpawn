@@ -21,6 +21,14 @@ class ResourceManager {
         $this->pluginVersion = $this->pluginInstance->getDescription()->getVersion();
     }
 
+        public static function getInstance(Loader $plugin, Server $sv)
+    {
+        if(ResourceManager::$instance === null)
+            ResourceManager::$instance = new ResourceManager($plugin, $sv);
+
+        return ResourceManager::$instance;
+    }
+    
     public function getConfig() {
         return $this->config;
     }
@@ -40,9 +48,6 @@ class ResourceManager {
     }
 
     public function loadConfig($path) {
-        /**
-         * load config if file exists and if not create a file
-         */
         if (is_file($path . 'config.yml')) {
             $this->config = yaml_parse_file($path . 'config.yml');
         } else {
