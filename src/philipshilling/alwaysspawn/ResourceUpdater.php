@@ -1,5 +1,5 @@
 <?php
-namespace philipshilling\resourceupdater;
+namespace philipshilling\alwaysspawn\resourceupdater;
 
 class ResourceUpdater
 {
