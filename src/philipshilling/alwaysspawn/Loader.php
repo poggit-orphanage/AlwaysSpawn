@@ -13,7 +13,6 @@ class Loader extends Plugin implements Listener
 {
 
     public $resourceManager = null;
-
     public $resourceUpdater = null;
 
     public function onEnable()
@@ -25,18 +24,19 @@ class Loader extends Plugin implements Listener
         $this->resourceUpdater = ResourceUpdater::getInstance($this->resourceManager);
         $this->resourceUpdater->updateResourcesIfRequired(true);
     }
-
-    public function onPlayerJoin(PlayerJoinEvent $event)
-    {
-        if ($this->resourceManager->getConfig()["alwaysspawn with proxy"] === false) {
-            $event->getPlayer()->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
-        }
-    }
-
-    public function onPlayerLogin(PlayerLoginEvent $event)
+    public function onPlayerJoin(PlayerJoinEvent $eventjoin)
     {
         if ($this->resourceManager->getConfig()["alwaysspawn with proxy"] === true) {
-            $event->getPlayer()->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
+            $this->getLogger()->info("Alwaysspawn starts for proxy setting");
         }
+        return $eventjoin->getPlayer()->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
+    }
+
+    public function onPlayerLogin(PlayerLoginEvent $eventlogin)
+    {
+        if ($this->resourceManager->getConfig()["alwaysspawn with proxy"] === false) {
+                        $this->getLogger()->info("Alwaysspawn starts without proxy setting")    
+        }
+        return $eventlogin->getPlayer()->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
     }
 }
