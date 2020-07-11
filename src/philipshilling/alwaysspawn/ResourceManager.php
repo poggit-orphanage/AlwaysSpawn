@@ -32,6 +32,10 @@ class ResourceManager {
     public function getConfig() {
         return $this->config;
     }
+    
+    public function getPluginVersion() { 
+        return $this->pluginVersion; 
+    }
 
     public function getConfigVersion() {
         if (isset($this->config['version']))
