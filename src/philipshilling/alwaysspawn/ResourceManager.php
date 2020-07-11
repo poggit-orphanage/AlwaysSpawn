@@ -1,5 +1,5 @@
 <?php
-namespace philipshilling\alwaysspawn\resourcemanager;
+namespace philipshilling\alwaysspawn;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\Server;
