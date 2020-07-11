@@ -18,6 +18,10 @@ Yes. AlwaysSpawn will look for the coordinates for the servers SpawnPoint and te
 
 At the moment I do not have any plans for any major updates in the future. This means that I will likely only update this plugin in order to fix bugs or update the API. However, if someone does give me a good idea to add to the plugin, I will gladly add said feature.
 
+**Big thanks to**
+
+Chalapa13 and his resourceManager is really helpfuly
+
 # License
 
 All files included in this repository are **open source**.
