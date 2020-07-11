@@ -10,10 +10,10 @@ use alwaysspawn\ResourceManager;
 use alwaysspawn\ResourceUpdater;
 
 class Loader extends Plugin implements Listener {
-
+    
     public $resourceManager = null;
     public $resourceUpdater = null;
-
+    
     public function onEnable() {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->getServer()->getLogger()->info("AlwaysSpawn Enabled!");
@@ -28,10 +28,10 @@ class Loader extends Plugin implements Listener {
         }
         return $eventjoin->getPlayer()->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
     }
-
+    
     public function onPlayerLogin(PlayerLoginEvent $eventlogin) {
         if ($this->resourceManager->getConfig()["alwaysspawn with proxy"] === false) {
-            $this->getLogger()->info("Alwaysspawn starts without proxy setting");    
+            $this->getLogger()->info("Alwaysspawn starts without proxy setting");
         }
         return $eventlogin->getPlayer()->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
     }
