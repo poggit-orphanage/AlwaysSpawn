@@ -3,24 +3,17 @@ namespace philipshilling\alwaysspawn;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\Server;
+use philipshilling\alwaysspawn\Loader;
 
-class ResourceManager
-{
-
+class ResourceManager {
     private static $instance = null;
-
     private $resUpdaterInstance = null;
-
     private $pluginInstance = null;
-
     private $serverInstance = null;
-
     private $pluginVersion = null;
-
     private $config = [];
 
-    private function __construct(alwaysspawn $plugin, Server $sv)
-    {
+    private function __construct(Loader $plugin, Server $sv) {
         $this->pluginInstance = $plugin;
         $this->serverInstance = $sv;
         $this->resUpdaterInstance = ResourceUpdater::getInstance($this);
@@ -28,29 +21,25 @@ class ResourceManager
         $this->pluginVersion = $this->pluginInstance->getDescription()->getVersion();
     }
 
-    public function getConfig()
-    {
+    public function getConfig() {
         return $this->config;
     }
 
-    public function getConfigVersion()
-    {
+    public function getConfigVersion() {
         if (isset($this->config['version']))
             return $this->config['version'];
 
         return null;
     }
 
-    public function loadResources()
-    {
+    public function loadResources() {
         if (! is_dir($path = $this->pluginInstance->getDataFolder())) {
             mkdir($path);
         }
         $this->loadConfig($path);
     }
 
-    public function loadConfig($path)
-    {
+    public function loadConfig($path) {
         /**
          * load config if file exists and if not create a file
          */
@@ -63,8 +52,7 @@ class ResourceManager
         }
     }
 
-    public function saveConfig($config)
-    {
+    public function saveConfig($config) {
         $this->config = $config;
 
         $path = $this->pluginInstance->getDataFolder();
