@@ -35,7 +35,7 @@ class Loader extends Plugin implements Listener
     public function onPlayerLogin(PlayerLoginEvent $eventlogin)
     {
         if ($this->resourceManager->getConfig()["alwaysspawn with proxy"] === false) {
-            $this->getLogger()->info("Alwaysspawn starts without proxy setting")    
+            $this->getLogger()->info("Alwaysspawn starts without proxy setting");    
         }
         return $eventlogin->getPlayer()->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
     }
