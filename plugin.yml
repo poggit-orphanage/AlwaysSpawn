@@ -1,6 +1,6 @@
 name: AlwaysSpawn
 authors: [Philip Shilling, Suerion]
-version: 2.2.5
+version: 2.2.6
 api: [3.0.0]
 main: philipshilling\alwaysspawn\Loader
 load: STARTUP
